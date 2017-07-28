@@ -1,0 +1,2 @@
+class Flagpost < ApplicationRecord
+end
