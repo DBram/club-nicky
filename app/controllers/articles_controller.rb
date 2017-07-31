@@ -19,16 +19,11 @@ class ArticlesController < ApplicationController
   def new
     @article = Article.new
   end
-
-  # GET /articles/1/edit
-  def edit
-    @article = Article.find(params[:id])
-  end
-
+  
   # POST /articles
   # POST /articles.json
   def create
-    @article = Article.new(article_params)
+    @article = Article.new(params[:article])
 
     respond_to do |format|
       if @article.save
@@ -39,6 +34,13 @@ class ArticlesController < ApplicationController
         format.json { render json: @article.errors, status: :unprocessable_entity }
       end
     end
+
+  # GET /articles/1/edit
+  def edit
+    @article = Article.find(params[:id])
+  end
+
+  
   end
 
   # PATCH/PUT /articles/1
